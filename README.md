@@ -13,4 +13,16 @@
     device.name = "PN532 NFC Board"
     device.connstring = "pn532_uart:/dev/tty.usbserial-1440"
     ```
-7. Now everything should be setted up and if you place an nfc badge on the module it should be found by `nfc-poll`
+7. Now everything should be setted up and if you place an nfc tag on the module it should be found by `nfc-poll`
+
+
+### Read/Write NDEF messages
+To be able to read or write NDEF messages you can use the command line tool `libfreefare`.
+
+1. Open the command line
+2. `brew install libfreefare`
+3. Create a textfile for example `helloWorld.txt`and add the following content `Hello NFC World!`
+4. Place an nfc tag on the modul and execute the following command:</br>
+   `mifare-classic-write-ndef -y -i helloWorld.txt`
+5. Now the message should be written on to the tag and you can read it from there with:</br>
+   `mifare-classic-read-ndef -y -o readdata.txt`
