@@ -6,6 +6,7 @@
 2. `brew install libnfc`
 3. `nfc-list`</br>
     Note down the serial port e.g. `pn532_uart:/dev/tty.usbserial-1440`. If your device is not listed check if you connected the **TXD** and **RXD** wire correctly.
+    You can also check the **tty** and see where the usbserial adapter is connected to with `ls /dev/tty*`
 4. `cd /usr/local/Cellar/libnfc/1.8.0/etc/nfc`
 5. Open `libnfc.conf`
 6. Add the following lines (use for `device.connstring` the serial port from step **3.**) </br>
@@ -26,3 +27,9 @@ To be able to read or write NDEF messages you can use the command line tool `lib
    `mifare-classic-write-ndef -y -i helloWorld.txt`
 5. Now the message should be written on to the tag and you can read it from there with:</br>
    `mifare-classic-read-ndef -y -o readdata.txt`
+
+### Links
+http://nfc-tools.org/index.php/Main_Page
+
+http://nfc-tools.org/index.php?title=Libnfc:Arduino
+
